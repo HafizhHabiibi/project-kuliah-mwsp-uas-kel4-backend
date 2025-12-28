@@ -6,25 +6,27 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Str;
 use App\Models\User;
+use App\Notifications\CustomResetPassword;
 
 class AuthenticationController extends Controller
 {
     /**
-     * Register user
+     * REGISTER
      */
     public function register(Request $request)
     {
         $validated = $request->validate([
-            'name'     => 'required|string|min:4',
-            'email'    => 'required|email|unique:users',
-            'password' => 'required|string|min:8',
+            'username' => 'required|string|min:3|unique:users,username',
+            'email'    => 'required|email|unique:users,email',
+            'password' => 'required|string|min:6',
         ]);
 
         $user = User::create([
-            'name'     => $validated['name'],
+            'name'     => $validated['username'],
+            'username' => $validated['username'],
             'email'    => $validated['email'],
             'password' => Hash::make($validated['password']),
         ]);
@@ -39,7 +41,7 @@ class AuthenticationController extends Controller
     }
 
     /**
-     * Login user
+     * LOGIN
      */
     public function login(Request $request)
     {
@@ -66,27 +68,85 @@ class AuthenticationController extends Controller
     }
 
     /**
-     * GET CURRENT LOGGED-IN USER
+     * FORGOT PASSWORD (send email reset link via API)
+     */
+    public function forgotPassword(Request $request)
+    {
+        $request->validate(['email' => 'required|email']);
+
+        $user = User::where('email', $request->email)->first();
+
+        if (!$user) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Email tidak ditemukan'
+            ], 404);
+        }
+
+        try {
+            $token = app('auth.password.broker')->createToken($user);
+            $user->notify(new CustomResetPassword($token));
+
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Link reset password telah dikirim ke email Anda'
+            ], 200);
+
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Gagal kirim email: ' . $e->getMessage()
+            ], 500);
+        }
+    }
+
+    /**
+     * RESET PASSWORD
+     */
+    public function resetPassword(Request $request)
+    {
+        $request->validate([
+            'token'    => 'required',
+            'email'    => 'required|email',
+            'password' => 'required|confirmed|min:6',
+        ]);
+
+        $status = Password::reset(
+            $request->only('email', 'password', 'password_confirmation', 'token'),
+            function ($user, $password) {
+                $user->password = Hash::make($password);
+                $user->setRememberToken(Str::random(60));
+                $user->save();
+            }
+        );
+
+        return $status === Password::PASSWORD_RESET
+            ? response()->json(['status' => 'success', 'message' => __($status)])
+            : response()->json(['status' => 'error', 'message' => __($status)], 400);
+    }
+
+    /**
+     * GET USER INFO
      */
     public function userInfo(Request $request)
     {
         return response()->json([
             'status' => 'success',
-            'data'   => $request->user(), 
+            'data'   => $request->user(),
         ]);
     }
 
     /**
-     * Update profile user
+     * UPDATE PROFILE
      */
     public function updateProfile(Request $request)
     {
         $user = $request->user();
 
         $validated = $request->validate([
-            'name'              => 'sometimes|string|min:4',
-            'address'           => 'nullable|string|max:500',
-            'profile_photo_url' => 'nullable|url',
+            'username'   => 'sometimes|string|min:3|unique:users,username,' . $user->id,
+            'alamat'     => 'nullable|string|max:500',
+            'gambar_url' => 'nullable|string|max:255',
         ]);
 
         $user->update($validated);
@@ -98,7 +158,7 @@ class AuthenticationController extends Controller
     }
 
     /**
-     * Logout
+     * LOGOUT USER
      */
     public function logOut(Request $request)
     {

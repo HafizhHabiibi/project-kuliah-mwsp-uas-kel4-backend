@@ -8,6 +8,10 @@ use App\Http\Controllers\API\ProductController;
 Route::post('/register', [AuthenticationController::class, 'register']);
 Route::post('/login', [AuthenticationController::class, 'login']);
 
+// --------------- Forgot Password (PUBLIC) ----------------
+Route::post('/forgot-password', [AuthenticationController::class, 'forgotPassword']);
+Route::post('/reset-password', [AuthenticationController::class, 'resetPassword']);
+
 // --------------- Protected Routes (SANCTUM) ----------------
 Route::middleware('auth:sanctum')->group(function () {
 
