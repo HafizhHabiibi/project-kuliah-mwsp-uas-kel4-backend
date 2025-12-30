@@ -5,6 +5,7 @@ use App\Http\Controllers\API\AuthenticationController;
 use App\Http\Controllers\API\ProductController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\KeranjangController;
+use App\Http\Controllers\WishlistController;
 
 // --------------- Register & Login (PUBLIC) ----------------
 Route::post('/register', [AuthenticationController::class, 'register']);
@@ -36,4 +37,11 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('/keranjang/{id}', [KeranjangController::class, 'update']); // Update quantity
     Route::delete('/keranjang/{id}', [KeranjangController::class, 'destroy']); // Remove from cart
 
+    // Wishlist
+    Route::get('/wishlist', [WishlistController::class, 'index']);
+    Route::post('/wishlist', [WishlistController::class, 'store']);
+    Route::delete('/wishlist/{produk_id}', [WishlistController::class, 'destroy']);
 });
+
+
+
