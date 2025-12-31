@@ -31,7 +31,7 @@ class ProdukSeeder extends Seeder
             ],
             [
                 'nama' => 'Green Tea Lemonade',
-                'gambar_url' => 'https://st2.depositphotos.com/1692343/7179/i/450/depositphotos_71796819-stock-photo-homemade-iced-tea-and-lemonade.jpg', // edit gambar
+                'gambar_url' => 'https://st2.depositphotos.com/1692343/7179/i/450/depositphotos_71796819-stock-photo-homemade-iced-tea-and-lemonade.jpg',
                 'kategori' => 'Beverages',
                 'harga' => 5.49,
                 'deskripsi' => 'A perfect blend of green tea and fresh lemon. Healthy and refreshing.',
@@ -109,7 +109,7 @@ class ProdukSeeder extends Seeder
             ],
             [
                 'nama' => 'Iced Chocolate',
-                'gambar_url' => 'https://www.shutterstock.com/image-photo/close-glass-iced-cocoa-cool-260nw-1061011808.jpg', // edit gambar
+                'gambar_url' => 'https://www.shutterstock.com/image-photo/close-glass-iced-cocoa-cool-260nw-1061011808.jpg', 
                 'kategori' => 'Drink',
                 'harga' => 5.49,
                 'deskripsi' => 'Rich chocolate Drink served cold with whipped cream topping.',
@@ -167,7 +167,7 @@ class ProdukSeeder extends Seeder
             ],
             [
                 'nama' => 'Cheese Burger Deluxe',
-                'gambar_url' => 'https://static.vecteezy.com/system/resources/thumbnails/045/607/037/small/delicious-cheeseburger-close-up-photo.jpg', // edit gambar
+                'gambar_url' => 'https://static.vecteezy.com/system/resources/thumbnails/045/607/037/small/delicious-cheeseburger-close-up-photo.jpg', 
                 'kategori' => 'Burger',
                 'harga' => 13.99,
                 'deskripsi' => 'Double beef patty with melted cheddar cheese, bacon, and caramelized onions.',
@@ -176,7 +176,7 @@ class ProdukSeeder extends Seeder
             ],
             [
                 'nama' => 'Chicken Burger',
-                'gambar_url' => 'https://t3.ftcdn.net/jpg/00/40/24/60/360_F_40246031_zWZoDrKKr4jusGNtSpKV7Zvy9VdeIi88.jpg', // edit gambar
+                'gambar_url' => 'https://t3.ftcdn.net/jpg/00/40/24/60/360_F_40246031_zWZoDrKKr4jusGNtSpKV7Zvy9VdeIi88.jpg', 
                 'kategori' => 'Burger',
                 'harga' => 10.49,
                 'deskripsi' => 'Crispy fried chicken breast with coleslaw and mayo in a soft bun.',
