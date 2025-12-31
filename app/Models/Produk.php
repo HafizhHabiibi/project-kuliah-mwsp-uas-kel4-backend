@@ -39,7 +39,7 @@ class Produk extends Model
      * @var array<string, string>
      */
     protected $casts = [
-        'harga' => 'integer',
+        'harga' => 'decimal:2',
     ];
 
     /**

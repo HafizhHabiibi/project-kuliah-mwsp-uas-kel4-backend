@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     public function up(): void
     {
         Schema::create('produk', function (Blueprint $table) {
@@ -13,7 +12,7 @@ return new class extends Migration
             $table->string('nama');
             $table->string('gambar_url')->nullable();
             $table->string('kategori');
-            $table->integer('harga');
+            $table->decimal('harga', 8, 2);
             $table->text('deskripsi')->nullable();
             $table->timestamps();
         });
