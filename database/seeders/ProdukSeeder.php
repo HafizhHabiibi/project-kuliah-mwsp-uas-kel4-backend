@@ -31,7 +31,7 @@ class ProdukSeeder extends Seeder
             ],
             [
                 'nama' => 'Green Tea Lemonade',
-                'gambar_url' => 'https://st2.depositphotos.com/1692343/7179/i/450/depositphotos_71796819-stock-photo-homemade-iced-tea-and-lemonade.jpg', // edit gambar
+                'gambar_url' => 'https://st2.depositphotos.com/1692343/7179/i/450/depositphotos_71796819-stock-photo-homemade-iced-tea-and-lemonade.jpg',
                 'kategori' => 'Beverages',
                 'harga' => 5.49,
                 'deskripsi' => 'A perfect blend of green tea and fresh lemon. Healthy and refreshing.',
@@ -101,7 +101,7 @@ class ProdukSeeder extends Seeder
             [
                 'nama' => 'Mango Smoothie',
                 'gambar_url' => 'https://www.eatingbirdfood.com/wp-content/uploads/2021/05/mango-smoothie-angle-1024x1536.jpg',
-                'kategori' => 'drink',
+                'kategori' => 'Drink',
                 'harga' => 5.99,
                 'deskripsi' => 'Creamy mango smoothie made with fresh mangoes and yogurt. Tropical delight!',
                 'created_at' => now(),
@@ -109,28 +109,28 @@ class ProdukSeeder extends Seeder
             ],
             [
                 'nama' => 'Iced Chocolate',
-                'gambar_url' => 'https://www.shutterstock.com/image-photo/close-glass-iced-cocoa-cool-260nw-1061011808.jpg', // edit gambar
-                'kategori' => 'drink',
+                'gambar_url' => 'https://www.shutterstock.com/image-photo/close-glass-iced-cocoa-cool-260nw-1061011808.jpg', 
+                'kategori' => 'Drink',
                 'harga' => 5.49,
-                'deskripsi' => 'Rich chocolate drink served cold with whipped cream topping.',
+                'deskripsi' => 'Rich chocolate Drink served cold with whipped cream topping.',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'nama' => 'Strawberry Milkshake',
                 'gambar_url' => 'https://www.unicornsinthekitchen.com/wp-content/uploads/2021/07/Strawberry-Milkshake-2.1200px-1-of-1.jpg',
-                'kategori' => 'drink',
+                'kategori' => 'Drink',
                 'harga' => 6.49,
                 'deskripsi' => 'Thick and creamy strawberry milkshake topped with fresh strawberries.',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
 
-            // Launch Category (Lunch items)
+            // Lunch Category (Lunch items)
             [
                 'nama' => 'Chicken Teriyaki Bowl',
                 'gambar_url' => 'https://www.wholesomeyum.com/wp-content/uploads/2023/05/wholesomeyum-Teriyaki-Chicken-Bowl-5.jpg',
-                'kategori' => 'launch',
+                'kategori' => 'Lunch',
                 'harga' => 10.49,
                 'deskripsi' => 'Grilled chicken with teriyaki sauce served over steamed rice with vegetables.',
                 'created_at' => now(),
@@ -139,7 +139,7 @@ class ProdukSeeder extends Seeder
             [
                 'nama' => 'Beef Steak Set',
                 'gambar_url' => 'https://cdn.pixabay.com/photo/2017/04/30/09/30/steak-2272464_1280.jpg',
-                'kategori' => 'launch',
+                'kategori' => 'Lunch',
                 'harga' => 19.99,
                 'deskripsi' => 'Tender beef steak with mashed potatoes, grilled vegetables, and black pepper sauce.',
                 'created_at' => now(),
@@ -148,7 +148,7 @@ class ProdukSeeder extends Seeder
             [
                 'nama' => 'Salmon Fillet Lunch',
                 'gambar_url' => 'https://thumbs.dreamstime.com/b/grilled-salmon-fillet-fresh-vegetable-salad-gourmet-lunch-generated-ai-artificial-intelligence-277565607.jpg',
-                'kategori' => 'launch',
+                'kategori' => 'Lunch',
                 'harga' => 22.99,
                 'deskripsi' => 'Pan-seared salmon with lemon butter sauce, asparagus, and quinoa.',
                 'created_at' => now(),
@@ -159,7 +159,7 @@ class ProdukSeeder extends Seeder
             [
                 'nama' => 'Classic Beef Burger',
                 'gambar_url' => 'https://cdn.pixabay.com/photo/2022/07/15/18/16/beef-burger-7323692_1280.jpg',
-                'kategori' => 'burger',
+                'kategori' => 'Burger',
                 'harga' => 10.99,
                 'deskripsi' => 'Juicy beef patty with lettuce, tomato, onions, pickles, and our special sauce.',
                 'created_at' => now(),
@@ -167,8 +167,8 @@ class ProdukSeeder extends Seeder
             ],
             [
                 'nama' => 'Cheese Burger Deluxe',
-                'gambar_url' => 'https://static.vecteezy.com/system/resources/thumbnails/045/607/037/small/delicious-cheeseburger-close-up-photo.jpg', // edit gambar
-                'kategori' => 'burger',
+                'gambar_url' => 'https://static.vecteezy.com/system/resources/thumbnails/045/607/037/small/delicious-cheeseburger-close-up-photo.jpg', 
+                'kategori' => 'Burger',
                 'harga' => 13.99,
                 'deskripsi' => 'Double beef patty with melted cheddar cheese, bacon, and caramelized onions.',
                 'created_at' => now(),
@@ -176,8 +176,8 @@ class ProdukSeeder extends Seeder
             ],
             [
                 'nama' => 'Chicken Burger',
-                'gambar_url' => 'https://t3.ftcdn.net/jpg/00/40/24/60/360_F_40246031_zWZoDrKKr4jusGNtSpKV7Zvy9VdeIi88.jpg', // edit gambar
-                'kategori' => 'burger',
+                'gambar_url' => 'https://t3.ftcdn.net/jpg/00/40/24/60/360_F_40246031_zWZoDrKKr4jusGNtSpKV7Zvy9VdeIi88.jpg', 
+                'kategori' => 'Burger',
                 'harga' => 10.49,
                 'deskripsi' => 'Crispy fried chicken breast with coleslaw and mayo in a soft bun.',
                 'created_at' => now(),
@@ -186,7 +186,7 @@ class ProdukSeeder extends Seeder
             [
                 'nama' => 'Mushroom Swiss Burger',
                 'gambar_url' => 'https://www.emilyenchanted.com/wp-content/uploads/2023/02/Mushroom-Swiss-Burger-Featured-Image-1024x1024.jpg',
-                'kategori' => 'burger',
+                'kategori' => 'Burger',
                 'harga' => 11.49,
                 'deskripsi' => 'Beef patty topped with sautéed mushrooms and melted Swiss cheese.',
                 'created_at' => now(),
