@@ -5,16 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reset Password - BijiCoffeeShop</title>
     <style>
-        /* Reset default browser styles */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', sans-serif;
         }
 
         body {
-            background: linear-gradient(to right, #4a3750, #6b4c7a);
+            background: linear-gradient(to right, #4A2C2A, #A47148);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -32,7 +31,7 @@
 
         h2 {
             text-align: center;
-            color: #4a3750;
+            color: #4A2C2A;
             margin-bottom: 20px;
         }
 
@@ -56,17 +55,17 @@
         form button {
             width: 100%;
             padding: 12px;
-            background-color: #4a3750;
+            background-color: #4A2C2A;
             color: #fff;
             font-size: 16px;
             border: none;
             border-radius: 8px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: 0.3s ease;
         }
 
         form button:hover {
-            background-color: #6b4c7a;
+            background-color: #A47148;
         }
 
         .note {

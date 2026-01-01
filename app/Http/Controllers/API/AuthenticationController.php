@@ -101,6 +101,7 @@ class AuthenticationController extends Controller
 
     /**
      * RESET PASSWORD
+     * (disini bagian tambahan untuk tampilkan halaman sukses)
      */
     public function resetPassword(Request $request)
     {
@@ -119,9 +120,16 @@ class AuthenticationController extends Controller
             }
         );
 
-        return $status === Password::PASSWORD_RESET
-            ? response()->json(['status' => 'success', 'message' => __($status)])
-            : response()->json(['status' => 'error', 'message' => __($status)], 400);
+        // ==== ⬇️ BAGIAN TAMBAHAN UNTUK TAMPILAN HTML SUCCESS ====
+        if ($status === Password::PASSWORD_RESET) {
+            return view('auth.password_reset_success');
+        }
+        // ==== ⬆️ END TAMBAHAN ====
+
+        return response()->json([
+            'status'  => 'error',
+            'message' => __($status)
+        ], 400);
     }
 
     /**
