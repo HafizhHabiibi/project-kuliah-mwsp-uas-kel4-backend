@@ -196,7 +196,7 @@ class ProdukSeeder extends Seeder
 
             // Promotions Category
             [
-                'nama' => 'Hot Mocha Cappucino Latte',
+                'nama' => 'Hot Mocha Cappuccino Latte',
                 'gambar_url' => 'https://i.pinimg.com/736x/de/d8/5d/ded85de22eaedcf4416926633ae13eb9.jpg',
                 'kategori' => 'Promotions',
                 'harga' => 5.88,
