@@ -24,8 +24,11 @@ class User extends Authenticatable
         'password',
         'alamat',
         'gambar_url',
-    ];
 
+        // ✅ TAMBAHAN UNTUK GOOGLE LOGIN
+        'provider',
+        'provider_id',
+    ];
 
     /**
      * The attributes that should be hidden for serialization.

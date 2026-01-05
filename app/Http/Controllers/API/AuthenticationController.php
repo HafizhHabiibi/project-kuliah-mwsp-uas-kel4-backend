@@ -176,4 +176,46 @@ class AuthenticationController extends Controller
             'message' => 'Logged out',
         ]);
     }
+
+// ===================== GOOGLE LOGIN =====================
+    public function googleLogin(Request $request)
+    {
+        $validated = $request->validate([
+            'name'        => 'required|string',
+            'email'       => 'required|email',
+            'provider'    => 'required|string',
+            'provider_id' => 'required|string',
+        ]);
+
+        // Cek apakah user sudah ada berdasarkan email
+        $user = User::where('email', $validated['email'])->first();
+
+        if ($user) {
+            // Jika user ada, update provider & provider_id jika kosong
+            if (!$user->provider || !$user->provider_id) {
+                $user->update([
+                    'provider'    => $validated['provider'],
+                    'provider_id' => $validated['provider_id'],
+                ]);
+            }
+        } else {
+            // Buat user baru
+            $user = User::create([
+                'username'    => explode('@', $validated['email'])[0], // ambil nama sebelum @
+                'email'       => $validated['email'],
+                'password'    => Hash::make(Str::random(12)), // password random
+                'provider'    => $validated['provider'],
+                'provider_id' => $validated['provider_id'],
+            ]);
+        }
+
+        // Buat token
+        $token = $user->createToken('authToken')->plainTextToken;
+
+        return response()->json([
+            'status' => 'success',
+            'user'   => $user,
+            'token'  => $token,
+        ], 200);
+    }
 }

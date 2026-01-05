@@ -10,6 +10,9 @@ use App\Http\Controllers\API\ChatController;
 use App\Http\Controllers\ApI\MessageController;
 use App\Http\Controllers\RatingController;
 
+// ===================== GOOGLE LOGIN =====================
+Route::post('/google-login', [AuthenticationController::class, 'googleLogin']);
+
 // --------------- Register & Login (PUBLIC) ----------------
 Route::post('/register', [AuthenticationController::class, 'register']);
 Route::post('/login', [AuthenticationController::class, 'login']);
@@ -54,6 +57,3 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/ratings/{produk_id}', [RatingController::class, 'index']);
     Route::post('/ratings', [RatingController::class, 'store'])->middleware('auth:sanctum');
 });
-
-
-
